@@ -40,3 +40,7 @@ process.on("uncaughtException", (err) => {
         process.exit(1);
     });
 });
+
+process.on("SIGTERM", () => {
+    console.log("SIGTEM RECEIVED, Shutting down....");
+});
