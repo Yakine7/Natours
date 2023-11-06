@@ -15,29 +15,23 @@
   // public/js/login.js
   var login = async (email, password) => {
     try {
-      const res = await axios.post(
-        "http://127.0.0.1:3000/api/v1/users/login",
-        {
-          email,
-          password
-        }
-      );
+      const res = await axios.post("/api/v1/users/login", {
+        email,
+        password
+      });
       if (res.data.status === "success") {
         showAlert("success", "Logged in successfully");
         window.setTimeout(() => {
           location.assign("/");
         }, 1500);
       }
-      console.log(res);
     } catch (err) {
       showAlert("error", err.response.data.message);
     }
   };
   var logout = async () => {
     try {
-      const res = await axios.get(
-        "http://127.0.0.1:3000/api/v1/users/logout"
-      );
+      const res = await axios.get("/api/v1/users/logout");
       if (res.data.status = "success")
         location.reload(true);
     } catch (err) {
@@ -89,7 +83,6 @@
           location.assign("/me");
         }, 1500);
       }
-      console.log(res);
     } catch (err) {
       showAlert("error", err.response.data.message);
     }
@@ -124,7 +117,6 @@
       form.append("name", document.getElementById("name").value);
       form.append("email", document.getElementById("email").value);
       form.append("photo", document.getElementById("photo").files[0]);
-      console.log(form);
       updateSettings(form, "data");
     });
   if (userPasswordForm)

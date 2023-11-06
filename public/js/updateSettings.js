@@ -17,7 +17,7 @@ export const updateSettings = async (data, type) => {
             }, 1500);
         }
 
-        console.log(res);
+        // console.log(res);
     } catch (err) {
         showAlert("error", err.response.data.message);
     }

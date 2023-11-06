@@ -25,7 +25,7 @@ exports.uploadTourImages = upload.fields([
 ]);
 
 exports.resizeTourImages = catchAsync(async (req, res, next) => {
-    console.log(req.files);
+    // console.log(req.files);
 
     if (!req.files.imageCover || !req.files.images) return next();
 
@@ -57,7 +57,7 @@ exports.resizeTourImages = catchAsync(async (req, res, next) => {
             req.body.images.push(filename);
         }),
     );
-    console.log(req.body);
+    // console.log(req.body);
     next();
 });
 
@@ -101,7 +101,7 @@ exports.getTourStats = catchAsync(async (req, res, next) => {
         //     $match: { _id: { $ne: "EASY" } },
         // },
     ]);
-    console.log(stats);
+    // console.log(stats);
     res.status(200).json({
         status: "success",
         data: stats,
@@ -110,7 +110,7 @@ exports.getTourStats = catchAsync(async (req, res, next) => {
 
 exports.getMonthlyPlan = catchAsync(async (req, res, next) => {
     const year = +req.params.year;
-    console.log(year);
+    // console.log(year);
     const plan = await Tour.aggregate([
         {
             $unwind: "$startDates",
@@ -145,10 +145,10 @@ exports.getMonthlyPlan = catchAsync(async (req, res, next) => {
             $limit: 12,
         },
     ]);
-    console.log(
-        "Start Dates:",
-        plan.map((item) => item.startDates),
-    );
+    // console.log(
+    //     "Start Dates:",
+    //     plan.map((item) => item.startDates),
+    // );
 
     res.status(200).json({
         status: "success",
@@ -176,7 +176,7 @@ exports.getToursWithin = catchAsync(async (req, res, next) => {
         startLocation: { $geoWithin: { $centerSphere: [[lng, lat], radius] } },
     });
 
-    console.log(distance, lat, lng, unit);
+    // console.log(distance, lat, lng, unit);
     res.status(200).json({
         status: "success",
         results: tours.length,
@@ -220,7 +220,7 @@ exports.getDistances = catchAsync(async (req, res, next) => {
         },
     ]);
 
-    console.log(lat, lng, unit);
+    // console.log(lat, lng, unit);
     res.status(200).json({
         status: "success",
         results: distances.length,
