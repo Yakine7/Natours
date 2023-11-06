@@ -1,0 +1,63 @@
+{
+    "name": "natours",
+    "version": "1.0.0",
+    "description": "learning node, express and mongoDB",
+    "source": "./public/js/index.js",
+    "module": "./public/js/bundle.js",
+    "targets": {
+        "default": {
+            "distDir": "./public/js"
+        }
+    },
+    "scripts": {
+        "start:dev": "nodemon server.js",
+        "start:prod": "cross-env NODE_ENV=production nodemon server.js",
+        "debug": "ndb server.js",
+        "build": "esbuild ./public/js/index.js --watch --bundle --outfile=./public/js/bundle.js",
+        "watch": "esbuild ./public/js/index.js --watch --bundle --outfile=./public/js/bundle.js"
+    },
+    "author": "Yakine",
+    "license": "ISC",
+    "browserslist": "> 0.5%",
+    "dependencies": {
+        "@babel/polyfill": "^7.12.1",
+        "axios": "^1.5.1",
+        "bcryptjs": "^2.4.3",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "esbuild": "^0.19.5",
+        "express": "^4.18.2",
+        "express-mongo-sanitize": "^2.2.0",
+        "express-rate-limit": "^7.0.2",
+        "express-xss-sanitizer": "^1.1.6",
+        "helmet": "^7.0.0",
+        "hpp": "^0.2.3",
+        "html-to-text": "^9.0.5",
+        "jsonwebtoken": "^9.0.1",
+        "mongoose": "^7.4.0",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.5-lts.1",
+        "nodemailer": "^6.9.5",
+        "paypal-rest-sdk": "^1.8.1",
+        "pug": "^3.0.2",
+        "sharp": "^0.32.6",
+        "slugify": "^1.6.6",
+        "validator": "^13.9.0"
+    },
+    "engines": {
+        "node": ">=8.10.0"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "eslint": "^8.45.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-jsx-a11y": "^6.7.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "eslint-plugin-react": "^7.32.2",
+        "prettier": "^3.0.0"
+    }
+}
